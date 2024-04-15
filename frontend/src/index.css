@@ -13,16 +13,44 @@
 
   overflow-x: hidden;
   min-width: 0;
-  scroll-behavior: smooth;
-  margin: 0;
-  padding: 0;
+
+  /* colors */
+  --ie-color-dark: #000066;
+  --ie-color-light: #0048E1;
+
+  --bg-color: hsla(0, 0%, 98%, 0.9);
+
+}
+
+
+html, main  {
+  background-color: var(--bg-color);
 }
 
 
 
-/* for light/dark mode later on */
-/*
-@media (prefers-color-scheme: light) {
-
+h1 {
+  font-size: 2rem;
+  line-height: 1.2;
 }
-*/
+
+h2 {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.2;
+}
+
+p {
+  @apply font-mono;
+  font-size: 1rem;
+  line-height: 1.5;
+} 
+
+
+a {
+  cursor: pointer;
+}

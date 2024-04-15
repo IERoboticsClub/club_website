@@ -7,25 +7,42 @@ import {
 
 import './index.css'
 
+import Layout from './components/Layout';
 // route components
 import Home from './Home';
 import Members from './pages/Members';
 import Projects from './pages/Projects';
+import Pows from './pages/Pows';
+import Events from './pages/Events';
 import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <Layout />,
     errorElement: <ErrorPage />,
-  },
-  {
-    path: '/members',
-    element: <Members />,
-  },
-  {
-    path: '/projects',
-    element: <Projects />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+      },
+      {
+        path: '/members',
+        element: <Members />,
+      },
+      {
+        path: '/projects',
+        element: <Projects />,
+      },
+      {
+        path: '/pows',
+        element: <Pows />,
+      },
+      {
+        path: '/events',
+        element: <Events />,
+      },
+    ]
   },
 ])
 
