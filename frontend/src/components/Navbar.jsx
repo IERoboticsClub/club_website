@@ -1,8 +1,8 @@
 import '../styles/Navbar.css';
 import logo from '../assets/robotics_club.svg';
-import arm from '../assets/arm.svg';
-import botzo from '../assets/botzo.svg';
-import pow from '../assets/pow.svg';
+import arm_icon from '../assets/arm.svg';
+import botzo_icon from '../assets/botzo.svg';
+import pow_icon from '../assets/pow.svg';
 import { useState, useEffect } from 'react';
 
 
@@ -11,39 +11,36 @@ import { useState, useEffect } from 'react';
 const icons = [
     {
         name: 'arm',
-        src: arm
+        src: arm_icon
     },
     {
         name: 'botzo',
-        src: botzo
+        src: botzo_icon
     },
     {
         name: 'pow',
-        src: pow
+        src: pow_icon
     },
 ]
 
-
 function Navbar() {
+    const [ currentPath, setCurrentPath ] = useState('Home'); // for the current path [Home, Projects, Members, Events, Pows]
+    const [ navLinks, setNavLinks ] = useState(["Projects", "Members", "Events", "Pows"]); // for the current path [Home, Projects, Members, Events, Pows
 
-    const [ isHovered, setIsHovered ] = useState(false);;
+    const [ logoIsHovered, setLogoIsHovered ] = useState(false); // for the top left logo
+    const [ navIsHovered, setNavIsHovered ] = useState(false);  // for the top right links
 
-    const handleHover = () => { 
-        console.log('hovered');
-        setIsHovered(true) 
-    }
+    const handleLogoHover = () => setLogoIsHovered(true);
+    const handleLogoLeave = () => setLogoIsHovered(false);
+    
+    const handleNavHover = () => setNavIsHovered(true);
+    const handleNavLeave = () => setNavIsHovered(false);
 
-    const handleLeave = () => {
-        console.log('mouse left');
-        setIsHovered(false)
-    }
-
-
-
+    
     return (
-        <nav id="nav" className='flex items-center justify-between min-h-[12vh] sm:mx-10 sm:mt-5'>
-            <div id="navbarIconContainer" onMouseLeave={handleLeave} className='flex justify-evenly items-center gap-x-10'>
-                <a onMouseOver={handleHover} href='/' className='cursor-pointer'>
+        <nav id="nav" className='flex items-center justify-between min-h-[12vh] sm:ml-[5rem] sm:mr-[10rem] sm:mt-8'>
+            <div id="navbarIconContainer" onMouseLeave={handleLogoLeave} className='flex justify-evenly items-center gap-x-10'>
+                <a onMouseOver={handleLogoHover} href='/' className='cursor-pointer'>
                     <img 
                         
                         id="navbar-logo"
@@ -56,12 +53,12 @@ function Navbar() {
                 {
                     icons.map((icon, index) => {
                         return (
-                            <a href={`/projects/${icon.name}`} key={index} className={`${isHovered ? 'show': ''}`}>
+                            <a href={`/projects/${icon.name}`} key={index} className={`${logoIsHovered ? 'showIcons': ''}`}>
                                 <img 
                                     src={icon.src} 
                                     alt={icon.name} 
                                     width='auto' height='auto' 
-                                    className={`max-h-[100px] ${ isHovered ? 'cursor-pointer' : 'cursor-default'} `}
+                                    className={`max-h-[100px] ${ logoIsHovered ? 'cursor-pointer' : 'cursor-default'} `}
                                 />
                             </a>
                         )
@@ -69,8 +66,22 @@ function Navbar() {
                 }
             </div>
 
-            <div>
-                <p><a className='text-lg'>Home</a></p>
+            <div onMouseLeave={handleNavLeave} className='navigation_button relative flex flex-row-reverse gap-x-4'>
+                
+
+                <p  className='current'>
+                    <a onMouseOver={handleNavHover} href={`/${currentPath === 'Home' ? '' : currentPath}`}>{currentPath}</a>
+                </p> 
+
+                {
+                   navLinks.map((link, index) => {
+                        return (
+                            <p key={index} className={`link ${ navIsHovered ? 'showLinks' : ''}`}>
+                                <a href={`/${link}`}>{link}</a>
+                            </p>
+                        )
+                   })
+                }
             </div>
         </nav>
     )

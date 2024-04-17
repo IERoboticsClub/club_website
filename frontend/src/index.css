@@ -18,15 +18,25 @@
   --ie-color-dark: #000066;
   --ie-color-light: #0048E1;
 
-  --bg-color: hsla(0, 0%, 98%, 0.9);
+  --bg-color: hsl(0, 0%, 95%);
 
+}
+
+
+@layer components {
+  .bigTitle {
+    @apply font-mono;
+    font-size: 3rem;
+    line-height: 1.2;
+    padding-bottom: 1rem;
+  }
 }
 
 
 html, main  {
   background-color: var(--bg-color);
+  overflow-x: hidden;
 }
-
 
 
 h1 {

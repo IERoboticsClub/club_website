@@ -2,23 +2,86 @@
 
 
 
-nav div {
-    margin: 1rem 2rem;
-}
-
-
-
 
 #navbarIconContainer a:not(:first-child) {
-    transition: opacity 0.2s ease-in-out, transform 0.5s ease-in-out;
+    transition: opacity 0.2s ease-in-out, transform 1s ease-in-out;
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(200%);
     visibility: hidden;
     z-index: 10;
 }
 
-#navbarIconContainer a.show {
+#navbarIconContainer a.showIcons {
     opacity: 1;
-    transform: translateX(0);
+    transform: translate(0);
     visibility: visible;
 }
+
+
+
+
+.navigation_button p a {
+    @apply text-lg;
+    position: relative;
+}
+
+.current a::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+    background-color: var(--ie-color-dark);
+
+    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out, border-radius 0.5s ease-in-out, right 0.5s ease-in-out;
+} 
+
+.current a:hover::after {
+    width: 0%;
+}
+
+
+.link {
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+    transform: translate(-100%, -200%);
+    z-index: 10;
+}
+
+.link a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    right: 0;
+    background-color: var(--ie-color-dark);
+
+    transition: transform 0.5s ease-in-out, width 0.5s ease-in-out, height 0.5s ease-in-out, border-radius 0.5s ease-in-out, right 0.5s ease-in-out;
+}
+
+.link a:hover::after {
+    width: 100%;
+}
+
+.link.showLinks {
+    visibility: visible;
+    transform: translate(0);
+    opacity: 1;
+}
+
+
+/*
+.navigation_button p a:hover::after {
+    transform: scaleY(1);
+
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    right: calc(100% + 0.5rem);
+
+
+}
+*/
