@@ -38,27 +38,28 @@ function Navbar() {
 
     
     return (
-        <nav id="nav" className='flex items-center justify-between min-h-[12vh] sm:ml-[5rem] sm:mr-[10rem] sm:mt-8'>
-            <div id="navbarIconContainer" onMouseLeave={handleLogoLeave} className='flex justify-evenly items-center gap-x-10'>
-                <a onMouseOver={handleLogoHover} href='/' className='cursor-pointer'>
-                    <img 
-                        
-                        id="navbar-logo"
-                        src={logo} 
-                        alt="IE Robotics Club Logo" 
-                        width='auto' height='auto' 
-                        className='max-h-[100px]'
-                    />
-                </a>
+        <nav id="nav" className='flex items-center justify-center sm:justify-end md:justify-between h-[12vh] sm:mr-8 md:ml-[5rem] md:mr-[10rem] md:mt-8'>
+            <div id="navbarIconContainer" onMouseLeave={handleLogoLeave} className='hidden md:flex items-center gap-x-10 md:min-w-[20rem] lg:min-w-[30rem]'>
+                {/* <div className='max-h-[200px] min-h-[150px] w-[120px]'> */}
+                    <a onMouseOver={handleLogoHover} href='/' className='cursor-pointer'>
+                        <img 
+                            id="navbar-logo"
+                            src={logo} 
+                            alt="IE Robotics Club Logo" 
+                            // width='auto' height='10' 
+                            className='h-[120px] w-[120px] cursor-pointer'
+                        />
+                    </a>
+                
                 {
                     icons.map((icon, index) => {
                         return (
-                            <a href={`/projects/${icon.name}`} key={index} className={`${logoIsHovered ? 'showIcons': ''}`}>
+                            <a href={`/projects/${icon.name}`} key={index} className={`hoverIcons  ${logoIsHovered ? 'showIcons block': ''}`}>
                                 <img 
                                     src={icon.src} 
                                     alt={icon.name} 
                                     width='auto' height='auto' 
-                                    className={`max-h-[100px] ${ logoIsHovered ? 'cursor-pointer' : 'cursor-default'} `}
+                                    className={`h-[120px] w-[120px] ${ logoIsHovered ? 'cursor-pointer' : 'cursor-default'} `}
                                 />
                             </a>
                         )
@@ -66,18 +67,18 @@ function Navbar() {
                 }
             </div>
 
-            <div onMouseLeave={handleNavLeave} className='navigation_button relative flex flex-row-reverse gap-x-4'>
+            <div onMouseLeave={handleNavLeave} className='navigation_button relative flex sm:flex-row-reverse gap-x-4 '>
                 
 
                 <p  className='current'>
-                    <a onMouseOver={handleNavHover} href={`/${currentPath === 'Home' ? '' : currentPath}`}>{currentPath}</a>
+                    <a onMouseOver={handleNavHover} href={`/${currentPath === 'Home' ? '' : currentPath.toLowerCase()}`}>{currentPath}</a>
                 </p> 
 
                 {
                    navLinks.map((link, index) => {
                         return (
                             <p key={index} className={`link ${ navIsHovered ? 'showLinks' : ''}`}>
-                                <a href={`/${link}`}>{link}</a>
+                                <a href={`/${link === 'Home' ? '' : link.toLowerCase()}`}>{link}</a>
                             </p>
                         )
                    })

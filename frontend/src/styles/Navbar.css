@@ -3,18 +3,20 @@
 
 
 
-#navbarIconContainer a:not(:first-child) {
+.hoverIcons {
     transition: opacity 0.2s ease-in-out, transform 1s ease-in-out;
     opacity: 0;
+    /* display: none; */
     transform: translateX(200%);
-    visibility: hidden;
+    
     z-index: 10;
 }
 
-#navbarIconContainer a.showIcons {
+.hoverIcons.showIcons {
+    /* display: block; */
     opacity: 1;
     transform: translate(0);
-    visibility: visible;
+    
 }
 
 
@@ -43,10 +45,9 @@
 
 
 .link {
+    @apply sm:opacity-0 sm:invisible block sm:translate-x-[-100%] sm:translate-y-[-200%];
     transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, visibility 0.5s ease-in-out;
-    visibility: hidden;
-    opacity: 0;
-    transform: translate(-100%, -200%);
+    /* transform: translate(-100%, -200%); */
     z-index: 10;
 }
 
@@ -67,9 +68,8 @@
 }
 
 .link.showLinks {
-    visibility: visible;
-    transform: translate(0);
-    opacity: 1;
+    @apply sm:visible sm:translate-x-0 sm:translate-y-0 sm:opacity-100;
+
 }
 
 
