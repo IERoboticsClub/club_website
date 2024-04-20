@@ -7,8 +7,12 @@ function Layout() {
 
     return (
         <>
-            <Navbar />
-            <Outlet /> {/* This is where the child routes will be rendered */}
+            <header>
+                <Navbar />
+            </header>
+            <main>
+                <Outlet /> {/* This is where the child routes will be rendered */}
+            </main>
         </>
     )
 }

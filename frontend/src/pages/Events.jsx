@@ -3,9 +3,9 @@
 
 function Events() {
     return (
-        <main>
+        <div>
 
-        </main>
+        </div>
     )
 }
 

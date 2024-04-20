@@ -4,7 +4,7 @@ import arm_icon from '../assets/arm.svg';
 import botzo_icon from '../assets/botzo.svg';
 import pow_icon from '../assets/pow.svg';
 import { useState, useEffect } from 'react';
-
+import { useLocation } from 'react-router-dom';
 
 
 
@@ -24,8 +24,11 @@ const icons = [
 ]
 
 function Navbar() {
-    const [ currentPath, setCurrentPath ] = useState('Home'); // for the current path [Home, Projects, Members, Events, Pows]
-    const [ navLinks, setNavLinks ] = useState(["Projects", "Members", "Events", "Pows"]); // for the current path [Home, Projects, Members, Events, Pows
+    const location = useLocation();
+    console.log('location.pathname',location.pathname)
+
+    const [ currentPath, setCurrentPath ] = useState(''); // for the current path [Home, Projects, Members, Events, Pows]
+    const [ navLinks, setNavLinks ] = useState(["Home", "Projects", "Members", "Events", "Pows"]); // for the current path [Home, Projects, Members, Events, Pows
 
     const [ logoIsHovered, setLogoIsHovered ] = useState(false); // for the top left logo
     const [ navIsHovered, setNavIsHovered ] = useState(false);  // for the top right links
@@ -36,6 +39,20 @@ function Navbar() {
     const handleNavHover = () => setNavIsHovered(true);
     const handleNavLeave = () => setNavIsHovered(false);
 
+    useEffect(() => {
+        if (location.pathname === currentPath.toLowerCase()) return;
+
+        const newLocationPath = location.pathname === '/' ? 'Home' : location.pathname.split('/')[1].charAt(0).toUpperCase() + location.pathname.split('/')[1].slice(1);
+
+        const nextNavLinks = [
+            ...navLinks.filter(link => link !== newLocationPath),
+            currentPath
+        ]
+
+        setNavLinks(nextNavLinks);   
+
+        setCurrentPath(newLocationPath);
+    }, [])
     
     return (
         <nav id="nav" className='flex items-center justify-center sm:justify-end md:justify-between h-[12vh] sm:mr-8 md:ml-[5rem] md:mr-[10rem] md:mt-8'>
@@ -69,11 +86,11 @@ function Navbar() {
 
             <div onMouseLeave={handleNavLeave} className='navigation_button relative flex sm:flex-row-reverse gap-x-4 '>
                 
-
+                
                 <p  className='current'>
                     <a onMouseOver={handleNavHover} href={`/${currentPath === 'Home' ? '' : currentPath.toLowerCase()}`}>{currentPath}</a>
                 </p> 
-
+                
                 {
                    navLinks.map((link, index) => {
                         return (

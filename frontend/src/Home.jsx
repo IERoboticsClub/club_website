@@ -5,11 +5,11 @@ import './Home.css';
 function Home() {
     return (
         <>
-            <header className='w-full min-h-[50vh] flex flex-col items-center justify-center'>
+            <div className='w-full min-h-[50vh] flex flex-col items-center justify-center'>
                 <h1 className='bigTitle'>Robotics and AI Club</h1>
                 <h2>Check out what we do here!</h2>
-            </header>
-            <main>
+            </div>
+            <article>
                 {/* project demo */}
 
 
@@ -27,7 +27,7 @@ function Home() {
                 {/* club about section*/}
                 
 
-            </main>
+            </article>
         </>
     )
 }

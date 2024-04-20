@@ -5,9 +5,9 @@
 
 function Pows() {
   return (
-    <main>
+    <div>
       
-    </main>
+    </div>
   )
 }
 
