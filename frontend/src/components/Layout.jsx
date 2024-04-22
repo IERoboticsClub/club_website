@@ -7,7 +7,7 @@ function Layout() {
 
     return (
         <>
-            <header>
+            <header className="sm:fixed sm:w-full z-50">
                 <Navbar />
             </header>
             <main>

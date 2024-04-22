@@ -55,7 +55,7 @@ function Navbar() {
     }, [])
     
     return (
-        <nav id="nav" className='flex items-center justify-center sm:justify-end md:justify-between h-[12vh] sm:mr-8 md:ml-[5rem] md:mr-[10rem] md:mt-8'>
+        <nav id="nav" className=' flex items-center justify-center sm:justify-end md:justify-between h-[12vh] sm:mr-8 md:ml-[5rem] md:mr-[10rem] md:mt-8'>
             <div id="navbarIconContainer" onMouseLeave={handleLogoLeave} className='hidden md:flex items-center gap-x-10 md:min-w-[20rem] lg:min-w-[30rem]'>
                 {/* <div className='max-h-[200px] min-h-[150px] w-[120px]'> */}
                     <a onMouseOver={handleLogoHover} href='/' className='cursor-pointer'>

@@ -9,7 +9,20 @@ export default {
       colors: {
         'ie-color-dark': 'var(--ie-color-dark)',
         'ie-color-light': 'var(--ie-color-light)',
-      }
+      },
+
+      keyframes: {
+        blinkCaret: {
+            '0%, 100%': { borderColor: 'transparent' },
+            '50%': { borderColor: 'var(--ie-color-dark)' },
+        }
+      },
+      
+      animation: {
+        blinkCaret: 'blinkCaret 0.75s step-end infinite',
+      },
+
+      
     },
   },
   plugins: [],

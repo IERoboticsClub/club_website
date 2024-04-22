@@ -15,22 +15,14 @@
   min-width: 0;
 
   /* colors */
-  --ie-color-dark: #000066;
-  --ie-color-light: #0048E1;
+  --ie-color-dark: hsl(240, 100%, 20%);
+  --ie-color-light: hsl(221, 100%, 75%);
 
   --bg-color: hsl(0, 0%, 95%);
 
 }
 
 
-@layer components {
-  .bigTitle {
-    @apply font-mono;
-    font-size: 3rem;
-    line-height: 1.2;
-    padding-bottom: 1rem;
-  }
-}
 
 
 html, main  {
@@ -47,6 +39,7 @@ h1 {
 h2 {
   font-size: 1.5rem;
   line-height: 1.2;
+  width: fit-content;
 }
 
 h3 {
