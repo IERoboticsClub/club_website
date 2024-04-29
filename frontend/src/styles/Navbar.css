@@ -19,7 +19,10 @@ nav {
     
 }
 
-
+.navigation_button {
+    transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;   
+    padding: 0.3rem 0.25rem; 
+}
 
 
 .navigation_button p a {

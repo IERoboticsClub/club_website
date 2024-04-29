@@ -1,10 +1,7 @@
 /* #root is the top-most element in the page, defined in ../../index.html */
 
 
-#root {
-    padding: 0;
-    margin: 0;
-}
+
 
 .bigTitle {
     @apply font-mono sm:whitespace-nowrap;
@@ -42,7 +39,7 @@
     animation: appear 1s ease-out forwards;
     animation-delay: 3.5s;
     /* color: var(--ie-color-light); */
-    transition: color 1s ease-out;
+    transition: color 0.5s ease-out;
 }
 
 .bigSubtitle:hover {
@@ -99,3 +96,22 @@
 
 /* spaceship animation */
 
+
+
+
+
+
+
+
+
+
+/* projects for home */
+.projectHomeTitle {
+    font-weight: 600;
+    transform: scale(1);
+    transition: scale 1.5s ease-in-out;
+}
+
+.projectHomeTitle:hover {
+    transform: scale(1.1);
+}

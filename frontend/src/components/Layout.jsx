@@ -10,7 +10,7 @@ function Layout() {
             <header className="sm:fixed sm:w-full z-50">
                 <Navbar />
             </header>
-            <main>
+            <main className="overflow-hidden w-full">
                 <Outlet /> {/* This is where the child routes will be rendered */}
             </main>
         </>

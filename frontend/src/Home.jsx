@@ -1,6 +1,8 @@
 import './Home.css';
 import spaceship from './assets/spaceship.svg';
 import { useState, useEffect } from 'react';
+import ProjectsForHome  from './components/ProjectsForHome.jsx';
+
 
 function Home() {
     const [translateY, setTranslateY] = useState(0);
@@ -23,23 +25,23 @@ function Home() {
     
     return (
         <>
-            <div className='w-full min-h-screen flex flex-col sm:pl-[5rem]  pl-[2rem] justify-center relative'>
+            <div className='w-full min-h-[90vh] flex flex-col sm:pl-standard  pl-[2rem] justify-center relative mb-8'>
                 <h1 className={`bigTitle typewriter  border-r-transparent sm:border-r-ie-color-light sm:border-r-[0.15em]`}>Robotics and AI Club.</h1> 
                 <a href="#"><h2 className="bigSubtitle">Check out what we do here !</h2></a>
             </div>
-            <img 
+            {/* <img 
                 id="spaceship" src={spaceship} 
                 alt="spaceship" 
                 className={`absolute bottom-0 right-0 w-[50%] h-[50%] z-0`}
-            />
-            <article className='min-h-screen'>
+            /> */}
+            <div className='flex flex-col'>
                 {/* cool animation */}
 
 
 
                 {/* projects display */}
 
-
+                <ProjectsForHome />
 
                 {/* scoreboard */}
 
@@ -51,7 +53,7 @@ function Home() {
                 {/* club about section*/}
                 
 
-            </article>
+            </div>
         </>
     )
 }

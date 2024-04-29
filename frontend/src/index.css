@@ -6,19 +6,18 @@
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   min-width: 0;
-
+  min-height: 0;
+  max-width: 100%;
+  
   /* colors */
   --ie-color-dark: hsl(240, 100%, 20%);
-  --ie-color-light: hsl(221, 100%, 75%);
-
-  --bg-color: hsl(0, 0%, 95%);
+  --ie-color-light: hsl(221, 100%, 75%); 
+  --ie-color-lighter: hsl(221, 100%, 90%);
+  
+  --bg-color: hsl(0, 0%, 93%);
 
 }
 
@@ -57,3 +56,8 @@ p {
 a {
   cursor: pointer;
 }
+
+.pythonOperator {
+  @apply text-sky-600 font-mono;
+}
+

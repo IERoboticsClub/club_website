@@ -25,10 +25,9 @@ const icons = [
 
 function Navbar() {
     const location = useLocation();
-    console.log('location.pathname',location.pathname)
 
     const [ currentPath, setCurrentPath ] = useState(''); // for the current path [Home, Projects, Members, Events, Pows]
-    const [ navLinks, setNavLinks ] = useState(["Home", "Projects", "Members", "Events", "Pows"]); // for the current path [Home, Projects, Members, Events, Pows
+    const [ navLinks, setNavLinks ] = useState(["/home", "/projects", "/members", "/events", "/pows"]); // for the current path [Home, Projects, Members, Events, Pows
 
     const [ logoIsHovered, setLogoIsHovered ] = useState(false); // for the top left logo
     const [ navIsHovered, setNavIsHovered ] = useState(false);  // for the top right links
@@ -42,7 +41,7 @@ function Navbar() {
     useEffect(() => {
         if (location.pathname === currentPath.toLowerCase()) return;
 
-        const newLocationPath = location.pathname === '/' ? 'Home' : location.pathname.split('/')[1].charAt(0).toUpperCase() + location.pathname.split('/')[1].slice(1);
+        const newLocationPath = location.pathname !== '/' ? location.pathname : '/home';
 
         const nextNavLinks = [
             ...navLinks.filter(link => link !== newLocationPath),
@@ -55,7 +54,7 @@ function Navbar() {
     }, [])
     
     return (
-        <nav id="nav" className=' flex items-center justify-center sm:justify-end md:justify-between h-[12vh] sm:mr-8 md:ml-[5rem] md:mr-[10rem] md:mt-8'>
+        <nav id="nav" className='flex items-center justify-center sm:justify-end md:justify-between h-[12vh] sm:mr-8 md:ml-[5rem] md:mr-[10rem] md:mt-8'>
             <div id="navbarIconContainer" onMouseLeave={handleLogoLeave} className='hidden md:flex items-center gap-x-10 md:min-w-[20rem] lg:min-w-[30rem]'>
                 {/* <div className='max-h-[200px] min-h-[150px] w-[120px]'> */}
                     <a onMouseOver={handleLogoHover} href='/' className='cursor-pointer'>
@@ -84,18 +83,16 @@ function Navbar() {
                 }
             </div>
 
-            <div onMouseLeave={handleNavLeave} className='navigation_button relative flex sm:flex-row-reverse gap-x-4 '>
-                
-                
+            <div onMouseLeave={handleNavLeave} className={`navigation_button py-10 ${navIsHovered ? 'shadow-2xl bg-ie-color-lighter' : ''} flex sm:flex-row-reverse gap-x-2 sm:gap-x-5 rounded-lg`}>                
                 <p  className='current'>
-                    <a onMouseOver={handleNavHover} href={`/${currentPath === 'Home' ? '' : currentPath.toLowerCase()}`}>{currentPath}</a>
+                    <a onMouseOver={handleNavHover} href={`${currentPath === '/home' ? '/' : currentPath.toLowerCase()}`}>{currentPath}</a>
                 </p> 
                 
                 {
                    navLinks.map((link, index) => {
                         return (
                             <p key={index} className={`link ${ navIsHovered ? 'showLinks' : ''}`}>
-                                <a href={`/${link === 'Home' ? '' : link.toLowerCase()}`}>{link}</a>
+                                <a href={`${link === '/home' ? '/' : link.toLowerCase()}`}>{link}</a>
                             </p>
                         )
                    })
