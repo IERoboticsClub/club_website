@@ -1,10 +1,10 @@
 import './Home.css';
 import spaceship from './assets/spaceship.svg';
 import { useState, useEffect } from 'react';
-import ProjectsForHome  from './components/ProjectsForHome.jsx';
+import Terminal  from './components/Terminal.jsx';
 
 
-function Home() {
+export default function Home() {
     const [translateY, setTranslateY] = useState(0);
     const [scrollY, setScrollY] = useState(0);
 
@@ -25,7 +25,7 @@ function Home() {
     
     return (
         <>
-            <div className='w-full min-h-[90vh] flex flex-col sm:pl-standard  pl-[2rem] justify-center relative mb-8'>
+            <div className='w-full min-h-[85vh] flex flex-col sm:pl-standard  pl-[2rem] justify-center relative mb-8'>
                 <h1 className={`bigTitle typewriter  border-r-transparent sm:border-r-ie-color-light sm:border-r-[0.15em]`}>Robotics and AI Club.</h1> 
                 <a href="#"><h2 className="bigSubtitle">Check out what we do here !</h2></a>
             </div>
@@ -41,7 +41,7 @@ function Home() {
 
                 {/* projects display */}
 
-                <ProjectsForHome />
+                <Terminal reduced={false} />
 
                 {/* scoreboard */}
 
@@ -57,5 +57,3 @@ function Home() {
         </>
     )
 }
-
-export default Home

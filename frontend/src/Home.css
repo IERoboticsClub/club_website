@@ -105,13 +105,19 @@
 
 
 
-/* projects for home */
-.projectHomeTitle {
-    font-weight: 600;
-    transform: scale(1);
-    transition: scale 1.5s ease-in-out;
+/* terminal for home */
+#reducedTerminal {
+    @apply fixed flex items-center justify-center h-screen w-screen;
+    background-color: rgba(240, 240, 240, 0.9);
+    z-index: 100;
 }
 
-.projectHomeTitle:hover {
-    transform: scale(1.1);
+
+#codeInput:focus {
+    outline: none;
+    resize: none;
+}
+
+.codeBoxes {
+    @apply bg-slate-700 rounded-md w-1/2 px-3 py-5 h-[30rem];
 }

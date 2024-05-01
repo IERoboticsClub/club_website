@@ -83,7 +83,7 @@ function Navbar() {
                 }
             </div>
 
-            <div onMouseLeave={handleNavLeave} className={`navigation_button py-10 ${navIsHovered ? 'shadow-2xl bg-ie-color-lighter' : ''} flex sm:flex-row-reverse gap-x-2 sm:gap-x-5 rounded-lg`}>                
+            <div onMouseLeave={handleNavLeave} className={`navigation_button py-10 ${navIsHovered ? 'shadow-2xl bg-ie-color-light' : ''} flex sm:flex-row-reverse gap-x-2 sm:gap-x-5 rounded-lg`}>                
                 <p  className='current'>
                     <a onMouseOver={handleNavHover} href={`${currentPath === '/home' ? '/' : currentPath.toLowerCase()}`}>{currentPath}</a>
                 </p> 

@@ -26,7 +26,6 @@
 
 html, main  {
   background-color: var(--bg-color);
-  overflow-x: hidden;
 }
 
 
@@ -57,7 +56,23 @@ a {
   cursor: pointer;
 }
 
+
+code {
+  @apply font-mono px-2 rounded-sm text-xl font-semibold italic;
+  background-color:hsl(221, 100%, 75%);
+
+}
+
 .pythonOperator {
   @apply text-sky-600 font-mono;
 }
 
+.projectHomeTitle {
+  font-weight: 600;
+  transform: scale(1);
+  transition: transform 0.5s ease-in-out;
+}
+
+.projectHomeTitle:hover {
+  transform: scale(1.1);
+}
