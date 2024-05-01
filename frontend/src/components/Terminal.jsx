@@ -24,10 +24,10 @@ import InputBoxes from './InputBoxes';
     - show_projects() will show all projects on the page
 
     - clear will clear the terminal
-    - help() will show all available functions
+    - help will show all available functions
     
     - `ls` will list all projects / sections of the page that can be accessed
-
+    - pwd will show the current location
     - `cd /` will take you to the home page
     - `cd /projects` will take you to the projects page, and so on
 

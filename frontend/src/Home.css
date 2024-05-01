@@ -119,5 +119,9 @@
 }
 
 .codeBoxes {
-    @apply bg-slate-700 rounded-md w-1/2 px-3 py-5 h-[30rem];
+    @apply bg-slate-700 rounded-md w-1/2 px-5 py-5 h-[30rem];
+}
+
+.outputBox ul li {
+    @apply pl-5;
 }

@@ -1,9 +1,6 @@
 
 
-
-function getProjects() {
-    return [
-    {
+const projects = [{
         "id": "club_website",
         "name": "Club website",
         "teaser": "Connecting the club to the world",
@@ -50,12 +47,8 @@ function getProjects() {
         "video_demo_link": "https://drive.google.com/file/d/1JePXmyYm6fQMNS9O9hxXbaHs9tqG9BeC/view?usp=sharing",
         "cover_image_link": "https://drive.google.com/file/d/1A8qc85fqSlxM9plDRisCuMOwnz2NbDXc/view?usp=sharing",
         "progress_status": "5",
-        
-
     }
 
 ]
 
-}
-
-export default getProjects;
+export default projects;

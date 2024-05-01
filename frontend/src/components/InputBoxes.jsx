@@ -1,12 +1,15 @@
-import getProjects from '../utils/projects.js';
+import projects from '../utils/projects.js';
 import { useState, useEffect, useCallback } from 'react';
 import { Play } from 'lucide-react';
-
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export default function InputBoxes() {
-    const projects = getProjects();
+    const location = useLocation();
+    const navigate = useNavigate();
+
     const [ inputContent, setInputContent ] = useState("");
-    const [ codeOutput, setCodeOutput ] = useState([]);
+    const [ codeOutput, setCodeOutput ] = useState();
+    const [ cdPath, setCdPath ] = useState(location.pathname);
 
     const handleSubmit = (e) => {
 
@@ -15,23 +18,59 @@ export default function InputBoxes() {
         const wordArray = inputContent.split("\n");
         const strippedArray = wordArray.filter(word => word !== "")
 
+        // remove the '\n' from when the user presses enter
         for (let i = 0; i < strippedArray.length; i++) {
             strippedArray[i] = strippedArray[i].replace(/\n/g, "")
         }
 
+
+        /*
+            - help
+            - ls
+            - clear 
+            - pwd
+            - echo
+            - cd /[path_name]
+            - show [section_name]
+            - takeme [section_name]
+        */
+
+        console.log(strippedArray)
         for (let i = 0; i < strippedArray.length; i++) {
-            if (strippedArray[i] === "help") {
-                setCodeOutput(help())
-            } else if (strippedArray[i] === "ls") {
-                setCodeOutput(show_projects())
-            } else if (strippedArray[i].includes("show_project()")) {
-                const project_id = strippedArray[i].split("(")[1].split(")")[0];
-                setCodeOutput(show_project(project_id))
-            } else if (strippedArray[i].includes("clear")) {
-                setCodeOutput([])
-            } else {
-                setCodeOutput(<p className='text-red-500'>Error: Function not found</p>)
+
+            switch (strippedArray[i]) {
+                case "ls":
+                    setCodeOutput(ls());
+                    break;
+                case "help":
+                    setCodeOutput(help());
+                    break;
+                case "clear":
+                    setCodeOutput("");
+                    break;
+                case "pwd":
+                    setCodeOutput(<p className='text-base'>{cdPath}</p>);
+                    break;
+                case "echo":
+                    setCodeOutput(echo());
+                    break;
+                case "cd":
+                    setCodeOutput(
+                        setCdPath(strippedArray[i+1])
+                    );
+                    break;
+                case "show":
+                    setCodeOutput(show(strippedArray[i+1]));
+                    break;
+                case "takeme":
+                    navigate(strippedArray[i+1]);
+                    break;
+                default:
+                    setCodeOutput(<p className='text-base'>Command not recognized</p>);
+                    break;
             }
+
+            
         }
 
         setInputContent("");
@@ -73,7 +112,7 @@ export default function InputBoxes() {
                     className='w-full resize-none bg-transparent border-none px-2 font-mono'
                     />
             </form>
-            <div className='codeBoxes flex flex-col gap-y-5 '>
+            <div className='codeBoxes outputBox flex flex-col gap-y-5'>
                 {codeOutput}
             </div>
         </div>
@@ -85,52 +124,96 @@ export default function InputBoxes() {
 
 
 // helper function for the output of the code
+/*
+    we can have the terminal be have the basic functions of a normal linux terminal 
+    
+    - show_project(id) will show the project with that id
+    - show_projects() will show all projects on the page
+
+    - clear will clear the terminal
+    - help() will show all available functions
+    
+    - `ls` will list all projects / sections of the page that can be accessed
+
+    - `cd /` will take you to the home page
+    - `cd /projects` will take you to the projects page, and so on
+
+*/
+
+/*
+    - ls
+    - clear 
+    - pwd
+    - echo
+    - cd /[path_name]
+    - show [section_name]
+*/
+
 
 function help() {
     return (
-        <div className='flex flex-col  justify-center w-full gap-y-5'>
-            <h3 className='text-2xl text-center'>Here are the available functions:</h3>
-            <ul className='flex flex-col items-center justify-center gap-y-2'>
-                <li className='text-lg'>ls</li>
-                <li className='text-lg'>club_website()</li>
-                <li className='text-lg'>luna()</li>
-                <li className='text-lg'>orgone()</li>
-                <li className='text-lg'>pepper()</li>
-                <li className='text-lg'>botzo()</li>
+        <>
+            <h3 className='text-xl w-fit '>Here are all available commands:</h3>
+            <ul className='flex flex-col items-start justify-start gap-y-2'>
+                <li className='text-lg'>- ls</li>
+                <li className='text-lg'>- clear</li>
+                <li className='text-lg'>- pwd</li>
+                <li className='text-lg'>- echo</li>
+                <li className='text-lg'>- cd /[path_name]</li>
+                <li className='text-lg'>- show [section_name]</li>
+                <li className='text-lg'>- takeme [path_name]</li>
             </ul>
-        </div>
-    )
-}
-
-function show_projects() {
-    const projects = getProjects();
-    return (
-        <div className='flex flex-col items-center justify-center w-full gap-y-5'>
-            <h3 className='text-2xl text-center'>Here are the available projects:</h3>
-            <ul className='flex flex-col items-center justify-center gap-y-2'>
-                {projects.map((project, index) => {
-                    return (
-                        <li key={`home-${project.id}-${index}`} className='text-lg'>{project.name}</li>
-                    )
-                })}
-            </ul>
-        </div>
+        </>
+        
     )
 }
 
 
-function show_project(project_id) {
-    const projects = getProjects();
-    const project = projects.find(project => project.id === project_id);
+function ls() {
     return (
-        <div className='flex flex-col items-center justify-center w-full gap-y-5'>
-            <h3 className='text-2xl text-center'>Here is the project:</h3>
-            <ul className='flex flex-col items-center justify-center gap-y-2'>
-                <li className='text-lg'>{project.name}</li>
-                <li className='text-lg'>{project.teaser}</li>
-                <li className='text-lg'>{project.progress_status}</li>
-                <li className='text-lg'>{project.video_demo_link}</li>
-            </ul>
-        </div>
+        <>
+
+        </>
+    )
+}
+
+function pwd() {
+    return (
+        <>
+            <p className='text-'></p>
+        </>
+    )
+}
+
+function echo() {
+    return (
+        <>
+        </>
+    )
+}
+
+function cd(path) {
+    setCdPath(path);
+    return (
+        <>
+
+        </>
+    )
+}
+
+function show(section) {
+
+    return (
+        <>
+        </>
+    )
+}
+
+
+function takeme(path) {
+    navigate(path);
+    return (
+        <>
+        </>
     )
 }
