@@ -155,13 +155,13 @@ function help() {
         <>
             <h3 className='text-xl w-fit '>Here are all available commands:</h3>
             <ul className='flex flex-col items-start justify-start gap-y-2'>
-                <li className='text-lg'>- ls</li>
-                <li className='text-lg'>- clear</li>
-                <li className='text-lg'>- pwd</li>
-                <li className='text-lg'>- echo</li>
-                <li className='text-lg'>- cd /[path_name]</li>
-                <li className='text-lg'>- show [section_name]</li>
-                <li className='text-lg'>- takeme [path_name]</li>
+                <li className=''>- ls</li>
+                <li className=''>- clear</li>
+                <li className=''>- pwd</li>
+                <li className=''>- echo</li>
+                <li className=''>- cd /[path_name]</li>
+                <li className=''>- show [section_name]</li>
+                <li className=''>- takeme [path_name]</li>
             </ul>
         </>
         
@@ -172,7 +172,15 @@ function help() {
 function ls() {
     return (
         <>
-
+            <ul className='flex flex-col gap-y-2'>
+                {
+                    projects.map(project => {
+                        return (
+                            <li key={project.id} className=''>{project.name}</li>
+                        )
+                    })
+                }
+            </ul>
         </>
     )
 }
@@ -180,20 +188,20 @@ function ls() {
 function pwd() {
     return (
         <>
-            <p className='text-'></p>
+            <p className=''></p>
         </>
     )
 }
 
-function echo() {
+function echo(text) {
     return (
         <>
+            <p>{text}</p>
         </>
     )
 }
 
 function cd(path) {
-    setCdPath(path);
     return (
         <>
 
@@ -202,16 +210,17 @@ function cd(path) {
 }
 
 function show(section) {
-
+    const options = "projects club_website luna orgone pepper botzo"
     return (
         <>
+
         </>
     )
 }
 
 
 function takeme(path) {
-    navigate(path);
+    
     return (
         <>
         </>

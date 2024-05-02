@@ -110,7 +110,12 @@
     @apply fixed flex items-center justify-center h-screen w-screen;
     background-color: rgba(240, 240, 240, 0.9);
     z-index: 100;
+    transition: opacity 0.5s ease-in-out;
 }
+
+
+
+
 
 
 #codeInput:focus {
@@ -123,5 +128,5 @@
 }
 
 .outputBox ul li {
-    @apply pl-5;
+    @apply pl-5 text-lg;
 }
