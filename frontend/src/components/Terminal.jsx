@@ -52,13 +52,17 @@ export default function Terminal({ reduced }) {
             (
                 <section className='flex flex-col items-center justify-center w-full mb-12'>
                     <article className='flex flex-col items-center justify-center w-full gap-y-10 font-mono text-sky-900'>
-                        <h2 className='w-[85%] text-left text-2xl leading-10'>
-                            Welcome to our terminal! 
+                        <h1 className='w-[85%] text-left tracking-wider text-2xl font-semibold leading-10'>
+                            Welcome to the IE Robotics club website!
+                            <br/>Here we will host events, showcase our projects, and other cool stuff.
+                        </h1>
+                        <h2 className='w-[85%] text-left text-2xl leading-10 font-'>
+                            For easier navigation, we have a terminal for you to use.
                             <br/>Here you can directly access some of the functions of our website.
-                            <br/>
                             <br/>It works just like a normal terminal, feel free to type in some commands.
                             <br/>You can get started by typing <code>ls</code> to see the available projects.
-                            <br/>If you get stuck, type <code>help</code>
+                            <br/>Or by typing{" "}<code>help</code> to see all available commands.
+                            <br/>
                             <br/>You can open it anytime by pressing <code>ctrl + shift + k</code>
                         </h2>
                         <InputBoxes />

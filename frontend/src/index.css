@@ -26,6 +26,7 @@
 
 html, main  {
   background-color: var(--bg-color);
+  scroll-behavior: smooth;
 }
 
 

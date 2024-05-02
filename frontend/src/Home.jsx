@@ -27,14 +27,14 @@ export default function Home() {
         <>
             <div className='w-full min-h-[85vh] flex flex-col sm:pl-standard  pl-[2rem] justify-center relative mb-8'>
                 <h1 className={`bigTitle typewriter  border-r-transparent sm:border-r-ie-color-light sm:border-r-[0.15em]`}>Robotics and AI Club.</h1> 
-                <a href="#"><h2 className="bigSubtitle">Check out what we do here !</h2></a>
+                <a href="#core"><h2 className="bigSubtitle">Check out what we do here !</h2></a>
             </div>
             {/* <img 
                 id="spaceship" src={spaceship} 
                 alt="spaceship" 
                 className={`absolute bottom-0 right-0 w-[50%] h-[50%] z-0`}
             /> */}
-            <div className='flex flex-col'>
+            <div id="core" className=''>
                 {/* cool animation */}
 
 
@@ -43,10 +43,11 @@ export default function Home() {
 
                 <Terminal reduced={false} />
 
-                {/* scoreboard */}
+                {/* club scoreboard */}
 
 
                 {/* word cloud but the words take you to a section of the page where we talk about it */}
+                {/* or trending robotics & ai topics/curiosities */}
 
 
                 

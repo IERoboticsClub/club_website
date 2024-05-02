@@ -80,11 +80,12 @@ export default function InputBoxes() {
 
     const handleKeyDown = useCallback((e) => {
         if (
-            e.ctrlKey
-            && e.key === 'Enter'
+            // e.ctrlKey
+            e.key === 'Enter'
         ) {
-            console.log('ctrl + enter', inputContent);
+            e.preventDefault(); // prevents from going to new line
             handleSubmit(inputContent);
+            
         }
     })
 
