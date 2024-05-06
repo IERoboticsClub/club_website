@@ -31,11 +31,13 @@ html, main  {
 
 
 h1 {
+  @apply text-sky-900;
   font-size: 2rem;
   line-height: 1.2;
 }
 
 h2 {
+  @apply text-sky-900;
   font-size: 1.5rem;
   line-height: 1.2;
   width: fit-content;

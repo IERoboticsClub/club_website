@@ -9,6 +9,8 @@ const projects = [{
         "video_demo_link": "https://drive.google.com/open?id=1WP4LyVJGjp7lRTioPf46nocHS2lWM1Iv",
         "cover_image_link": "https://drive.google.com/open?id=1v325wY3lo1Il4YIY4b04xBA0YN_JjM4U",
         "progress_status": "8",
+
+        "path": "/projects/club_website"
         
     },
     {
@@ -19,6 +21,7 @@ const projects = [{
         "video_demo_link": "https://drive.google.com/file/d/1-ksU-Bu3IytEB8I9qDtpCF_aMzRSURYo/view?usp=drive_link",
         "cover_image_link": "",
         "progress_status": "5",
+        "path": "/projects/luna"
         
     },
     {
@@ -28,7 +31,8 @@ const projects = [{
         "description": "Autonomous Self Navigating Vehicle",
         "video_demo_link": "https://drive.google.com/open?id=1nCmf0CfEOHd2CfYGxoTJ6Y49friH-0E1",
         "cover_image_link": "https://drive.google.com/open?id=1jwZi-8uYFv0fh70ptPtxbtn86qRHc_tk",
-        "progress_status": "4"
+        "progress_status": "4",
+        "path": "/projects/orgone"
     },
     {
         "id": "pepper_emoji",
@@ -38,6 +42,7 @@ const projects = [{
         "video_demo_link": "https://drive.google.com/open?id=1wkDMy-8X-P8q4pSMpdqBLtJPGK7O7L40",
         "cover_image_link": "https://drive.google.com/open?id=1ko6O0M2D7lbYYpbJCf9L_v9rngV16M5q",
         "progress_status": "6",
+        "path": "/projects/pepper"
     },
     {
         "id": "botzo_the_robot_dog",
@@ -47,6 +52,7 @@ const projects = [{
         "video_demo_link": "https://drive.google.com/file/d/1JePXmyYm6fQMNS9O9hxXbaHs9tqG9BeC/view?usp=sharing",
         "cover_image_link": "https://drive.google.com/file/d/1A8qc85fqSlxM9plDRisCuMOwnz2NbDXc/view?usp=sharing",
         "progress_status": "5",
+        "path": "/projects/botzo"
     }
 
 ]

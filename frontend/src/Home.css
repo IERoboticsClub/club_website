@@ -1,10 +1,22 @@
 /* #root is the top-most element in the page, defined in ../../index.html */
 
+.hide {
+    opacity: 0;
+    
+    /* filter: blur(5px);
+    transform: translateX(-100%); */
+    transition: all 1s ease-in-out;
+}
 
+.show {
+    opacity: 1;
+    /* filter: blur(0);
+    transform: translateX(0); */
+}
 
 
 .bigTitle {
-    @apply font-mono sm:whitespace-nowrap;
+    @apply font-mono sm:whitespace-nowrap text-black;
     font-size: 3rem;
     line-height: 1.2;
     margin: 0 auto 1.25rem 0;
@@ -13,10 +25,20 @@
     letter-spacing: .10em;
   }
 
+.rightHover {
+    transform: translateX(0);
+    transition: transform 1s;
+}
+
+.rightHover:hover {
+    transform: translateX(1.5rem);
+}
+
 
 .typewriter  {
     /* border-right: .15em solid var(--ie-color-dark); */
-    animation: typing 5s steps(50, end), blink-caret 0.75s step-end infinite;
+    animation: typing 6s steps(50, end), blink-caret 0.75s step-end infinite;
+    /* animation-delay: ; */
 }
 
 
@@ -33,6 +55,7 @@
 
 
 .bigSubtitle {
+    @apply text-black;
     position: relative;
     cursor: pointer;
     opacity: 0;
@@ -124,7 +147,7 @@
 }
 
 .codeBoxes {
-    @apply bg-slate-700 rounded-md w-1/2 px-5 py-5 h-[30rem];
+    @apply bg-slate-700 rounded-md w-1/2 px-5 py-5 h-[25rem];
 }
 
 .outputBox ul li {

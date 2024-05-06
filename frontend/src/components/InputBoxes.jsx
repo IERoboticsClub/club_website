@@ -1,4 +1,4 @@
-import projects from '../utils/projects.js';
+import projects from '../data/projects.js';
 import { useState, useEffect, useCallback } from 'react';
 import { Play } from 'lucide-react';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -33,6 +33,7 @@ export default function InputBoxes() {
             - cd /[path_name]
             - show [section_name]
             - takeme [section_name]
+            - matrix 
         */
 
         console.log(strippedArray)
@@ -224,6 +225,16 @@ function takeme(path) {
     
     return (
         <>
+        </>
+    )
+}
+
+
+function matrix(props) {
+
+    return (
+        <>
+        
         </>
     )
 }

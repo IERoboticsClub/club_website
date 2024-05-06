@@ -1,8 +1,25 @@
 
-
 nav {
     @apply sm:w-[85%];
 }
+
+.hideNav {
+    opacity: 0; 
+    transition: all 3s;
+}
+
+.showNav {
+    opacity: 1;
+}
+
+.logos {
+    @apply cursor-pointer;
+    --size: 6.5rem;
+    width: var(--size);
+    height: var(--size);
+}
+
+
 
 .hoverIcons {
     transition: opacity 0.2s ease-in-out, transform 1s ease-in-out;

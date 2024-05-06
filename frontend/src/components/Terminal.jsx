@@ -37,8 +37,8 @@ export default function Terminal({ reduced }) {
     
     return reduced ? (
             // CSS rules in Home.css
-                <section id="reducedTerminal" className=''>
-                    <article className='flex flex-col items-center w-full gap-y-10 font-mono text-sky-900'>
+                <section id="reducedTerminal" className='mb-5'>
+                    <article className='flex flex-col items-center w-full gap-y-10 font-mono '>
                         <h1 className='text-xl leading-8'>
                             Welcome to our terminal!
                             <br/>Type <code className='text-base'>help</code> if you want to see the available commands
@@ -51,7 +51,7 @@ export default function Terminal({ reduced }) {
             :
             (
                 <section className='flex flex-col items-center justify-center w-full mb-12'>
-                    <article className='flex flex-col items-center justify-center w-full gap-y-10 font-mono text-sky-900'>
+                    <article className='flex flex-col items-center justify-center w-full gap-y-10 font-mono '>
                         <h1 className='w-[85%] text-left tracking-wider text-2xl font-semibold leading-10'>
                             Welcome to the IE Robotics club website!
                             <br/>Here we will host events, showcase our projects, and other cool stuff.

@@ -1,5 +1,9 @@
 import '../styles/Navbar.css';
-import logo from '../assets/robotics_club.svg';
+import { LogoFilled } from './LogoFilled';
+import { LogoBlack } from './LogoBlack';
+import { LogoUnfilled } from './LogoUnfilled';
+import logo_unfilled from '../assets/logo_unfilled.svg';
+import logo_filled from '../assets/logo_filled.svg';
 import arm_icon from '../assets/arm.svg';
 import botzo_icon from '../assets/botzo.svg';
 import pow_icon from '../assets/pow.svg';
@@ -52,20 +56,54 @@ function Navbar() {
 
         setCurrentPath(newLocationPath);
     }, [])
+
+    useEffect(() => {
+        const nav = document.getElementById('nav');
+        setTimeout(() => {
+            nav.classList.add('showNav');
+            // nav.classList.add('visible')
+        }, 6000)
+    })
+
+
     
     return (
-        <nav id="nav" className='flex items-center justify-center sm:justify-end md:justify-between h-[12vh] sm:mr-8 md:ml-[5rem] md:mr-[10rem] md:mt-8'>
+        <nav id="nav" className='hideNav flex items-center justify-center sm:justify-end md:justify-between h-[12vh] sm:mr-8 md:ml-[5rem] md:mr-[10rem] md:mt-8'>
             <div id="navbarIconContainer" onMouseLeave={handleLogoLeave} className='hidden md:flex items-center gap-x-10 md:min-w-[20rem] lg:min-w-[30rem]'>
                 {/* <div className='max-h-[200px] min-h-[150px] w-[120px]'> */}
-                    <a onMouseOver={handleLogoHover} href='/' className='cursor-pointer'>
-                        <img 
-                            id="navbar-logo"
-                            src={logo} 
-                            alt="IE Robotics Club Logo" 
-                            // width='auto' height='10' 
-                            className='h-[120px] w-[120px] cursor-pointer'
-                        />
-                    </a>
+                {/* <LogoFilled /> */}
+                {
+                    logoIsHovered ? (
+                        <a id='filledLogo' onMouseOver={handleLogoHover} href='/' className='logos'>
+                            <LogoFilled/>
+                            {/* <img 
+                                
+                                src={logo_filled} 
+                                alt="IE Robotics Club Logo" 
+                                // width='auto' height='10' 
+                                className=' cursor-pointer'
+                                style={{height: '120px', width: 'auto'}}
+                            /> */}
+                        </a>
+                    )
+                    :
+                    (
+                        
+                        <a id='unfilledLogo' onMouseOver={handleLogoHover} href='/' className='logos'>
+                            {/* <LogoBlack /> */}
+                            <LogoUnfilled />
+                            {/* <img 
+                                id="navbar-logo"
+                                src={logo_unfilled} 
+                                alt="IE Robotics Club Logo" 
+                                // width='auto' height='10' 
+                                className='cursor-pointer'
+                                style={{height: '120px', width: 'auto'}}
+                            /> */}
+                        </a>
+                    )
+                }
+                    
                 
                 {
                     icons.map((icon, index) => {
