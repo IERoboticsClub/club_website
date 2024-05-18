@@ -12,11 +12,34 @@ nav {
     opacity: 1;
 }
 
-.logos {
+.logo {
     @apply cursor-pointer;
     --size: 6.5rem;
     width: var(--size);
     height: var(--size);
+}
+
+
+.logo #e_filling path {
+    /* stroke: white; */
+}
+
+
+/* logo svg stuff */
+#logo svg path, #logo svg g g path {
+    transition: all 0.5s steps(3, end);
+    /* transition: all 1s cubic-bezier(0,1.5,1,1.5); */
+}
+
+.logoHovered path {
+    fill: #00338D;
+    stroke: #00338D;
+}
+
+/* the svg path for the circle inside the e letter is a separate vector inside of it so we need to target it separately */
+.logoHovered #e_filling path {
+    fill: white !important; 
+    stroke: white !important; 
 }
 
 
@@ -93,15 +116,4 @@ nav {
 }
 
 
-/*
-.navigation_button p a:hover::after {
-    transform: scaleY(1);
 
-    width: 2rem;
-    height: 2rem;
-    border-radius: 50%;
-    right: calc(100% + 0.5rem);
-
-
-}
-*/

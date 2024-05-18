@@ -37,7 +37,7 @@
 
 .typewriter  {
     /* border-right: .15em solid var(--ie-color-dark); */
-    animation: typing 6s steps(50, end), blink-caret 0.75s step-end infinite;
+    animation: typing 4s steps(50, end), blink-caret 0.75s step-end infinite;
     /* animation-delay: ; */
 }
 
@@ -60,7 +60,7 @@
     cursor: pointer;
     opacity: 0;
     animation: appear 1s ease-out forwards;
-    animation-delay: 3.5s;
+    animation-delay: 2.5s;
     /* color: var(--ie-color-light); */
     transition: color 0.5s ease-out;
 }
@@ -78,7 +78,7 @@
     height: 0.1em;
     background-color: var(--ie-color-light);
     animation: slide 0.5s ease-out forwards, down 0.5s ease-out forwards;
-    animation-delay: 5s, 5.5s;
+    animation-delay: 4s, 4.5s;
 
 }
 

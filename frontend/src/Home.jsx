@@ -31,7 +31,7 @@ export default function Home() {
             const terminal = document.getElementById('welcome🦾');
             terminal.classList.add('show')
         
-        }, 6000)
+        }, 2500)
     })
     
     return (
