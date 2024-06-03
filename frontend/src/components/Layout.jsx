@@ -1,5 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
-import Navbar  from './Navbar';
+import Navbar  from './navbar/Navbar';
 import { useCallback, useEffect, useState } from 'react';
 import Terminal from './Terminal';
 
@@ -13,7 +13,7 @@ function Layout() {
         if (e.key === 'Escape') setShow(false);
         
         if (
-            e.key.toLowerCase() === 'k'
+            e.key.toLowerCase() === 'l'
             && e.shiftKey
             && e.ctrlKey
         ) {

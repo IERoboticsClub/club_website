@@ -31,27 +31,27 @@ html, main  {
 
 
 h1 {
-  @apply text-sky-900;
+  @apply text-ie-color-dark;
   font-size: 2rem;
   line-height: 1.2;
 }
 
 h2 {
-  @apply text-sky-900;
+  @apply text-ie-color-dark;
   font-size: 1.5rem;
   line-height: 1.2;
   width: fit-content;
 }
 
 h3 {
-  font-size: 1.25rem;
-  line-height: 1.2;
+  /* font-size: 1.25rem;
+  line-height: 1.2; */
 }
 
 p {
   @apply font-mono;
-  font-size: 1rem;
-  line-height: 1.5;
+  /* font-size: 1rem;
+  line-height: 1.5; */
 } 
 
 

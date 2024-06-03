@@ -63,7 +63,7 @@ export default function Terminal({ reduced }) {
                             <br/>You can get started by typing <code>ls</code> to see the available projects.
                             <br/>Or by typing{" "}<code>help</code> to see all available commands.
                             <br/>
-                            <br/>You can open it anytime by pressing <code>ctrl + shift + k</code>
+                            <br/>You can open it anytime by pressing <code>ctrl + shift + l</code>
                         </h2>
                         <InputBoxes />
                     </article>

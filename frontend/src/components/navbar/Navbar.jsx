@@ -1,13 +1,13 @@
-import '../styles/Navbar.css';
-import { LogoFilled } from './LogoFilled';
+import '../../styles/Navbar.css';
+import { LogoFilled } from './LogoFilled.jsx';
 
 import { Logo } from './Logo.jsx';
 
 
 
-import arm_icon from '../assets/arm.svg';
-import botzo_icon from '../assets/botzo.svg';
-import pow_icon from '../assets/pow.svg';
+import arm_icon from '../../assets/arm.svg';
+import botzo_icon from '../../assets/botzo.svg';
+import pow_icon from '../../assets/pow.svg';
 import { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 

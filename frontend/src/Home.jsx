@@ -32,6 +32,7 @@ export default function Home() {
             terminal.classList.add('show')
         
         }, 2500)
+        
     })
     
     return (
