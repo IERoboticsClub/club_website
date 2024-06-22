@@ -12,7 +12,6 @@ import Layout from './components/Layout';
 import Home from './Home';
 import Members from './pages/Members';
 import Projects from './pages/Projects';
-import Pows from './pages/Pows';
 import Events from './pages/Events';
 import ErrorPage from './pages/ErrorPage';
 
@@ -33,10 +32,6 @@ const router = createBrowserRouter([
       {
         path: '/projects',
         element: <Projects />,
-      },
-      {
-        path: '/pows',
-        element: <Pows />,
       },
       {
         path: '/events',

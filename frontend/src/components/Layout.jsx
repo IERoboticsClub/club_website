@@ -8,13 +8,12 @@ function Layout() {
     const [ show, setShow ] = useState(false);
 
     const handleKeyDown = useCallback((e) => {
-        
+        // e.preventDefault()
         // set to false when escape is pressed
         if (e.key === 'Escape') setShow(false);
         
         if (
-            e.key.toLowerCase() === 'l'
-            && e.shiftKey
+            e.key.toLowerCase() === 'k'
             && e.ctrlKey
         ) {
             setShow(prev => !prev);

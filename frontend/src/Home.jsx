@@ -1,6 +1,6 @@
 import './Home.css';
 import spaceship from './assets/spaceship.svg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 
 import Terminal  from './components/Terminal.jsx';
 import Scoreboard from './components/Scoreboard.jsx';
@@ -9,7 +9,7 @@ import ProjectsHome from './components/ProjectsHome.jsx';
 
 export default function Home() {
     const [translateY, setTranslateY] = useState(0);
-    const [scrollY, setScrollY] = useState(0);
+    const [ show, setShow ] = useState(true);
 
     useEffect(() => {
         
@@ -26,13 +26,40 @@ export default function Home() {
 
         const hiddenElements = document.querySelectorAll('.hide');
         hiddenElements.forEach(element => oberver.observe(element))
+        
+    })
 
-        setTimeout(() => {
-            const terminal = document.getElementById('welcome🦾');
+    useEffect(() => {  
+        const terminal = document.querySelector('#welcome🦾');      
+        
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('scroll', handleScroll)
+
+        if (show) { 
+            setTimeout(() => {
             terminal.classList.add('show')
-        
-        }, 2500)
-        
+            
+            }, 2500)
+        } else {
+            terminal.classList.add('show')
+        }
+
+        return () => {
+            document.removeEventListener('keydown', handleKeyDown);
+            document.removeEventListener('scroll', handleScroll)
+        }
+    }, [])
+
+    const handleScroll = useCallback((e) => {
+        const terminal = document.getElementById('#welcome🦾');
+        terminal.classList.add('show');
+    })
+
+    const handleKeyDown = useCallback((e) => {
+        // set to false when escape is pressed
+        if (e.key === 'Escape') setShow(false);
+        const terminal = document.querySelector('#welcome🦾')
+        terminal.classList.add('show')    
     })
     
     return (

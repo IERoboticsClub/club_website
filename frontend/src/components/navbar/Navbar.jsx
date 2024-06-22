@@ -8,7 +8,7 @@ import { Logo } from './Logo.jsx';
 import arm_icon from '../../assets/arm.svg';
 import botzo_icon from '../../assets/botzo.svg';
 import pow_icon from '../../assets/pow.svg';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useLocation } from 'react-router-dom';
 
 
@@ -43,6 +43,8 @@ function Navbar() {
     const handleNavHover = () => setNavIsHovered(true);
     const handleNavLeave = () => setNavIsHovered(false);
 
+    const [ show, setShow ] = useState(true);
+
     useEffect(() => {
         if (location.pathname === currentPath.toLowerCase()) return;
 
@@ -61,11 +63,16 @@ function Navbar() {
     useEffect(() => {
         const nav = document.getElementById('nav');
         const logo = document.getElementById('logo');
-
+        
         if (location.pathname === '/') {
-            setTimeout(() => {
+            if (show) {
+                setTimeout(() => {
+                    nav.classList.add('showNav');
+                }, 2500)
+            } else {
                 nav.classList.add('showNav');
-            }, 2500)
+            }
+            
         } else {
             nav.style.transition = 'opacity 0.5s ease-in-out';
             nav.classList.add('showNav')
@@ -78,6 +85,28 @@ function Navbar() {
         }
 
         
+    })
+    
+    useEffect(() => {
+        document.addEventListener('keydown', handleKeyDown);
+        document.addEventListener('scroll', handleScroll)
+
+        return () => { 
+            document.removeEventListener('keydown', handleKeyDown)
+            document.removeEventListener('scroll', handleScroll)
+        }
+    })
+
+    const handleScroll = useCallback(() => {
+        const nav = document.getElementById('nav');
+        nav.classList.add('showNav');
+    })
+
+    const handleKeyDown = useCallback((e) => {
+        // set to false when escape is pressed
+        if (e.key === 'Escape') setShow(false);
+        const nav = document.getElementById('nav');
+        nav.classList.add('showNav');
     })
 
 
